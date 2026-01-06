@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+
+{% block title %}Inicio - Sistema de Trazabilidad{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="card mb-4">
+            <div class="card-body text-center py-5">
+                <h1 class="display-4 mb-3">
+                    <i class="fas fa-leaf text-success"></i>
+                    Sistema de Trazabilidad Alimentaria
+                </h1>
+                <p class="lead text-muted">
+                    Gestión integral de trazabilidad para productos agrícolas orgánicos
+                </p>
+                <hr class="my-4">
+                <p class="mb-4">
+                    Este sistema permite rastrear productos desde la cosecha hasta su entrega en el supermercado,
+                    garantizando transparencia y control de calidad en cada etapa del proceso.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Estadísticas -->
+<div class="row mb-4">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <i class="fas fa-chart-bar"></i> Estadísticas del Sistema
+                </h5>
+                <div class="row text-center mt-3">
+                    <div class="col-md-4">
+                        <div class="p-3">
+                            <i class="fas fa-box fa-3x text-success mb-2"></i>
+                            <h3>{{ total_lotes }}</h3>
+                            <p class="text-muted">Lotes Registrados</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-3">
+                            <i class="fas fa-check-circle fa-3x text-info mb-2"></i>
+                            <h3>3</h3>
+                            <p class="text-muted">Componentes Activos</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-3">
+                            <i class="fas fa-shield-alt fa-3x text-warning mb-2"></i>
+                            <h3>100%</h3>
+                            <p class="text-muted">Trazabilidad</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Componentes principales -->
+<div class="row">
+    <div class="col-12 mb-3">
+        <h4><i class="fas fa-cubes"></i> Componentes del Sistema</h4>
+    </div>
+    
+    <!-- Componente 1: Gestión de Lotes -->
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-header">
+                <i class="fas fa-seedling"></i> Gestión de Lotes
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Origen del Producto</h5>
+                <p class="card-text">
+                    Registra la información de origen: código de lote, ubicación del cultivo y fecha de cosecha.
+                </p>
+                <ul class="list-unstyled">
+                    <li><i class="fas fa-check text-success"></i> Código único de lote</li>
+                    <li><i class="fas fa-check text-success"></i> Ubicación geográfica</li>
+                    <li><i class="fas fa-check text-success"></i> Fecha de cosecha</li>
+                </ul>
+            </div>
+            <div class="card-footer bg-transparent">
+                <a href="{% url 'registrar_lote' %}" class="btn btn-primary w-100">
+                    <i class="fas fa-plus"></i> Registrar Lote
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Componente 2: Gestión de Transformación -->
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-header">
+                <i class="fas fa-cogs"></i> Gestión de Transformación
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Procesamiento</h5>
+                <p class="card-text">
+                    Registra los procesos de lavado, empaquetado y control de calidad del producto.
+                </p>
+                <ul class="list-unstyled">
+                    <li><i class="fas fa-check text-success"></i> Proceso de lavado</li>
+                    <li><i class="fas fa-check text-success"></i> Proceso de empaquetado</li>
+                    <li><i class="fas fa-check text-success"></i> Control de calidad</li>
+                </ul>
+            </div>
+            <div class="card-footer bg-transparent">
+                <a href="{% url 'registrar_transformacion' %}" class="btn btn-primary w-100">
+                    <i class="fas fa-plus"></i> Registrar Transformación
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Componente 3: Gestión de Logística -->
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-header">
+                <i class="fas fa-truck"></i> Gestión de Logística
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Transporte y Entrega</h5>
+                <p class="card-text">
+                    Registra la temperatura de transporte y la fecha de entrega al punto de venta.
+                </p>
+                <ul class="list-unstyled">
+                    <li><i class="fas fa-check text-success"></i> Temperatura controlada</li>
+                    <li><i class="fas fa-check text-success"></i> Fecha de transporte</li>
+                    <li><i class="fas fa-check text-success"></i> Destino final</li>
+                </ul>
+            </div>
+            <div class="card-footer bg-transparent">
+                <a href="{% url 'registrar_logistica' %}" class="btn btn-primary w-100">
+                    <i class="fas fa-plus"></i> Registrar Logística
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Consulta de trazabilidad -->
+<div class="row">
+    <div class="col-12">
+        <div class="card bg-light">
+            <div class="card-body text-center py-4">
+                <h5 class="mb-3">
+                    <i class="fas fa-search"></i> ¿Necesitas consultar la trazabilidad completa de un lote?
+                </h5>
+                <a href="{% url 'consultar_trazabilidad' %}" class="btn btn-lg btn-primary">
+                    <i class="fas fa-search"></i> Consultar Trazabilidad
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

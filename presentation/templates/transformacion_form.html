@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+
+{% block title %}Registrar Transformación - STA{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-cogs"></i> Registrar Transformación
+            </div>
+            <div class="card-body">
+                <p class="text-muted mb-4">
+                    <i class="fas fa-info-circle"></i>
+                    Registre los procesos de transformación aplicados al lote. Esta información representa 
+                    la <strong>CAPA DE TRANSFORMACIÓN</strong> en la trazabilidad del producto.
+                </p>
+                
+                <form method="post" novalidate>
+                    {% csrf_token %}
+                    
+                    <!-- Código de lote -->
+                    <div class="mb-3">
+                        <label for="{{ form.codigo_lote.id_for_label }}" class="form-label">
+                            <i class="fas fa-barcode"></i> {{ form.codigo_lote.label }}
+                            <span class="text-danger">*</span>
+                        </label>
+                        {{ form.codigo_lote }}
+                        {% if form.codigo_lote.errors %}
+                            <div class="text-danger small mt-1">{{ form.codigo_lote.errors }}</div>
+                        {% endif %}
+                    </div>
+                    
+                    <!-- Sección de Lavado -->
+                    <h5 class="mt-4 mb-3"><i class="fas fa-hands-wash"></i> Proceso de Lavado</h5>
+                    
+                    <div class="mb-3">
+                        <label for="{{ form.proceso_lavado.id_for_label }}" class="form-label">
+                            {{ form.proceso_lavado.label }}
+                            <span class="text-danger">*</span>
+                        </label>
+                        {{ form.proceso_lavado }}
+                        {% if form.proceso_lavado.errors %}
+                            <div class="text-danger small mt-1">{{ form.proceso_lavado.errors }}</div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="{{ form.fecha_lavado.id_for_label }}" class="form-label">
+                            {{ form.fecha_lavado.label }}
+                            <span class="text-danger">*</span>
+                        </label>
+                        {{ form.fecha_lavado }}
+                        {% if form.fecha_lavado.errors %}
+                            <div class="text-danger small mt-1">{{ form.fecha_lavado.errors }}</div>
+                        {% endif %}
+                    </div>
+                    
+                    <!-- Sección de Empaquetado -->
+                    <h5 class="mt-4 mb-3"><i class="fas fa-box"></i> Proceso de Empaquetado</h5>
+                    
+                    <div class="mb-3">
+                        <label for="{{ form.proceso_empaquetado.id_for_label }}" class="form-label">
+                            {{ form.proceso_empaquetado.label }}
+                            <span class="text-danger">*</span>
+                        </label>
+                        {{ form.proceso_empaquetado }}
+                        {% if form.proceso_empaquetado.errors %}
+                            <div class="text-danger small mt-1">{{ form.proceso_empaquetado.errors }}</div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="{{ form.fecha_empaquetado.id_for_label }}" class="form-label">
+                            {{ form.fecha_empaquetado.label }}
+                            <span class="text-danger">*</span>
+                        </label>
+                        {{ form.fecha_empaquetado }}
+                        {% if form.fecha_empaquetado.errors %}
+                            <div class="text-danger small mt-1">{{ form.fecha_empaquetado.errors }}</div>
+                        {% endif %}
+                    </div>
+                    
+                    <!-- Sección de Control de Calidad -->
+                    <h5 class="mt-4 mb-3"><i class="fas fa-clipboard-check"></i> Control de Calidad</h5>
+                    
+                    <div class="mb-3">
+                        <label for="{{ form.control_calidad.id_for_label }}" class="form-label">
+                            {{ form.control_calidad.label }}
+                            <span class="text-danger">*</span>
+                        </label>
+                        {{ form.control_calidad }}
+                        {% if form.control_calidad.errors %}
+                            <div class="text-danger small mt-1">{{ form.control_calidad.errors }}</div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="{{ form.observaciones_calidad.id_for_label }}" class="form-label">
+                            {{ form.observaciones_calidad.label }}
+                        </label>
+                        {{ form.observaciones_calidad }}
+                        {% if form.observaciones_calidad.errors %}
+                            <div class="text-danger small mt-1">{{ form.observaciones_calidad.errors }}</div>
+                        {% endif %}
+                    </div>
+                    
+                    <hr class="my-4">
+                    
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            <i class="fas fa-save"></i> Registrar Transformación
+                        </button>
+                        <a href="{% url 'index' %}" class="btn btn-outline-secondary">
+                            <i class="fas fa-arrow-left"></i> Volver al Inicio
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
