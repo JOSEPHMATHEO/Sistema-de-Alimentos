@@ -107,10 +107,3 @@ El sistema permite consultar toda la trazabilidad de un lote específico, mostra
 - Procesos de transformación aplicados
 - Información logística
 
-### 🎓 Cumplimiento de Criterios Académicos
-
-✅ Arquitectura de 3 capas estricta (separación clara de responsabilidades)
-✅ Código comentado y documentado
-✅ Solución funcional completa
-✅ Base de datos PostgreSQL integrada
-✅ Interfaz web intuitiva con Bootstrap
